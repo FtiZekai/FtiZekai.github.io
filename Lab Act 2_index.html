@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory and Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        th {
+            background-color: #c7e0f4;
+        }
+        .supplier-cell {
+            background-color: #fbe4a6;
+            font-weight: bold;
+        }
+        .highlight {
+            color: red;
+        }
+        .product-img {
+            height: 100%;
+            max-height: 240px;
+            object-fit: contain;
+        }
+        form {
+            margin-top: 50px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .note {
+            font-size: small;
+        }
+        button {
+            padding: 8px 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center;">INVENTORY SYSTEMS</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Supplier</th>
+            <th>Date</th>
+            <th>Image</th>
+        </tr>
+        <tr>
+            <td>20001</td>
+            <td>Koko Crunch (pc)</td>
+            <td>1200</td>
+            <td rowspan="4" class="supplier-cell">Nestlé Philippines</td>
+            <td>5/14/2025</td>
+            <td rowspan="4">
+                <img class="product-img" src="https://www.nestle-cereals.com/global/sites/g/files/qirczx806/files/styles/1_1_768px_width/public/2022-07/KokoKrunch.png.webp?itok=dMDQJ6yQ" alt="Choco Crunch Cereal">
+            </td>
+        </tr>
+        <tr>
+            <td>20002</td>
+            <td>Koko Crunch (pack)</td>
+            <td>300</td>
+            <td>5/15/2025</td>
+        </tr>
+        <tr>
+            <td>20003</td>
+            <td>Koko Crunch Bites (pc)</td>
+            <td>5000</td>
+            <td>5/16/2025</td>
+        </tr>
+        <tr>
+            <td>20004</td>
+            <td>Koko Crunch Bites (pack)</td>
+            <td class="highlight">100</td>
+            <td>5/17/2025</td>
+        </tr>
+    </table>
+
+    <form>
+        <ul>
+            <li>
+                <label for="name">Your Name*</label><br>
+                <input type="text" id="name" name="name" required>
+            </li>
+            <li>
+                <label for="email">Email*</label><br>
+                <input type="email" id="email" name="email" required>
+            </li>
+            <li>
+                <label for="contact">Contact No.*</label><br>
+                <input type="tel" id="contact" name="contact" required>
+            </li>
+            <li>
+                <label for="message">Message</label><br>
+                <textarea id="message" name="message" rows="5"></textarea>
+            </li>
+            <li class="note">* required field</li>
+            <li>
+                <button type="submit">Send</button>
+            </li>
+        </ul>
+    </form>
+
+</body>
+</html>
