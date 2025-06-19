@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Closest Friends</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .tab {
+      display: none;
+    }
+    .tab-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      margin: 5px;
+      border-radius: 5px;
+    }
+    .tab-button.active {
+      background-color: #45a049;
+    }
+    .friend {
+      border: 2px solid #4CAF50;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      background-color: #f9f9f9;
+      max-width: 600px;
+    }
+    .friend h2 {
+      color: #4CAF50;
+    }
+    .nav-buttons {
+      margin-top: 20px;
+    }
+    .nav-buttons button {
+      background-color: #3498db;
+      color: white;
+      padding: 10px 15px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .nav-buttons button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+  <script>
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => tab.style.display = 'none');
+
+      const buttons = document.querySelectorAll('.tab-button');
+      buttons.forEach(button => button.classList.remove('active'));
+
+      document.getElementById(tabId).style.display = 'block';
+      const activeButton = document.querySelector(`button[data-tab="${tabId}"]`);
+      if (activeButton) activeButton.classList.add('active');
+    }
+
+    function nextTab(current) {
+      const order = ['friend1', 'friend2', 'friend3'];
+      const index = order.indexOf(current);
+      const nextIndex = (index + 1) % order.length;
+      showTab(order[nextIndex]);
+    }
+
+    function previousTab(current) {
+      const order = ['friend1', 'friend2', 'friend3'];
+      const index = order.indexOf(current);
+      const prevIndex = (index - 1 + order.length) % order.length;
+      showTab(order[prevIndex]);
+    }
+
+    window.onload = () => {
+      showTab('friend1'); // show default tab on load
+    };
+  </script>
+</head>
+<body>
+
+  <h1>My Besto Friendo's</h1>
+
+  <div>
+    <button class="tab-button" data-tab="friend1" onclick="showTab('friend1')">Angelyn Verzano</button>
+    <button class="tab-button" data-tab="friend2" onclick="showTab('friend2')">Julian Areeson Estupa</button>
+    <button class="tab-button" data-tab="friend3" onclick="showTab('friend3')">Triune Roldan</button>
+  </div>
+
+  <div id="friend1" class="tab">
+    <div class="friend">
+      <h2>Angelyn Verzano</h2>
+      <p><strong>Nickname:</strong> Angel</p>
+      <p><strong>Favorites:</strong> Listening to Music, Playing Rhythm Games, Playing Games</p>
+      <p><strong>Memories:</strong></p>
+      <p>For only 2 years of being classmates, it has been a memorable experience because of the ups and downs we encountered during our Senior High School years.</p>
+      <p>The first memorable moment is when we both listened to music during our free time.</p>
+      <div class="nav-buttons">
+        <button onclick="nextTab('friend1')">Next Friend →</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="friend2" class="tab">
+    <div class="friend">
+      <h2>Julian Areeson Estupa</h2>
+      <p><strong>Nickname:</strong> Juls</p>
+      <p><strong>Favorites:</strong> Playing Games</p>
+      <p><strong>Memories:</strong></p>
+      <p>For only 2 years of being classmates, it has been a memorable experience because of the ups and downs we encountered during our Senior High School years.</p>
+      <p>One of our memorable memories is when we both did a 10km fun run event in our school.</p>
+      <div class="nav-buttons">
+        <button onclick="previousTab('friend2')">← Previous</button>
+        <button onclick="nextTab('friend2')">Next Friend →</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="friend3" class="tab">
+    <div class="friend">
+      <h2>Triune Roldan</h2>
+      <p><strong>Nickname:</strong> Tri</p>
+      <p><strong>Favorites:</strong> Playing Sports, Playing Games</p>
+      <p><strong>Memories:</strong></p>
+      <p>For 4 years of being classmates, it has been a memorable experience because of the ups and downs we encountered during our Junior High School years.</p>
+      <p>One of our memorable moments is that we always played sports together with other friends during dismissal and PE class.</p>
+      <div class="nav-buttons">
+        <button onclick="previousTab('friend3')">← Previous</button>
+        <button onclick="nextTab('friend3')">Back to First →</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
